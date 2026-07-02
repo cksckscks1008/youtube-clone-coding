@@ -24,17 +24,17 @@ class CategorieButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(5), // 유튜브 스타일에 맞게 살짝 수정 (선택)
             color: isSelected ? Colors.white : Colors.white12,
           ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-              child: Text(
-                text,
-                style: TextStyle(
-                  color: isSelected ? Colors.black : Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-                          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Text(
+              text,
+              style: TextStyle(
+                color: isSelected ? Colors.black : Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
             ),
+          ),
         ),
       ),
     );
