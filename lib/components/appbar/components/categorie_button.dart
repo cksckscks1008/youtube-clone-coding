@@ -21,7 +21,7 @@ class CategorieButton extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5), // 유튜브 스타일에 맞게 살짝 수정 (선택)
+            borderRadius: BorderRadius.circular(5),
             color: isSelected ? Colors.white : Colors.white12,
           ),
           child: Padding(

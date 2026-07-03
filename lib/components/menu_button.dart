@@ -17,6 +17,7 @@ class MenuButton extends StatelessWidget {
     return Theme(
       data: ThemeData(shadowColor: Colors.transparent),
       child: InkWell(
+        splashColor: Colors.transparent,
         onTap: () => click(),
         child: Container(
           child: Padding(

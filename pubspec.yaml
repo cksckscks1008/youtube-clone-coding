@@ -31,13 +31,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # ⭐ 위치 수정: flutter와 똑같은 시작 위치(띄어쓰기 2칸)로 맞춰주세요!
-  remixicon: ^4.9.3
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-
+  youtube_player_flutter: ^9.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

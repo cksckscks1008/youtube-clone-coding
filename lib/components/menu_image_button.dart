@@ -17,6 +17,7 @@ class MenuImageButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: InkWell(
+        splashColor: Colors.transparent,
         onTap: () => click(),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
