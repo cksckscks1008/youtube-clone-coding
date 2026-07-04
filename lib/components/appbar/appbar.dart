@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/components/category_bar.dart';
+import 'package:youtube_app_clonecoding/components/search_page.dart';
 
 class Youtubepppbar extends StatefulWidget {
   final Function(int)? onCategorieSelected;
@@ -35,6 +36,7 @@ class _YoutubepppbarState extends State<Youtubepppbar> {
     '게시물',
     '새로운 맞춤 동영상',
   ];
+  List<String> history = [];
   int selectedIndex = 0;
   bool onHovered = false;
 
@@ -64,7 +66,14 @@ class _YoutubepppbarState extends State<Youtubepppbar> {
           ),
           const SizedBox(width: 20),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(history: history),
+                ),
+              );
+            },
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             icon: const Icon(Icons.search, color: Colors.white, size: 30),

@@ -45,6 +45,79 @@ class _HomeScreenState extends State<HomeScreen> {
       channelName: '덕양소',
       category: '애니메이션',
     ),
+    VideoModel(
+      youtubeId: 'LvRZlXtCgSE',
+      title:
+          '【LCK】 T1 5꽉 끝 아쉬운 패배.. / 패자조 1라운드 상대 FUR / BLG 승리, 골든로드 도전 - 롤 이스포츠',
+      channelName: 'THIRD[롤 백과사전]',
+      category: '게임',
+    ),
+    VideoModel(
+      youtubeId: 'SDgHYLAFcBU',
+      title: '[3분 HL] 32강 아르헨티나 VS 카보베르데 | KBS 260704 방송',
+      channelName: '올스',
+      category: '축구',
+    ),
+    VideoModel(
+      youtubeId: '8Acx4qioj64',
+      title: '[ENG] [SMTM10/8회] ♬ 리무진 (Feat. MINO) - 비오 @본선 | Mnet 211119 방송',
+      channelName: 'Mnet TV',
+      category: '랩',
+    ),
+    VideoModel(
+      youtubeId: 'XNM-m9Bry-E',
+      title: '당신의 게임 불감증을 치료해 줄 최고의 RPG TOP 8',
+      channelName: '마나물약',
+      category: '액션 어드벤처 게임',
+    ),
+    VideoModel(
+      youtubeId: 'spiHw2VYbK4',
+      title: '토끼의 뽀뽀를 받고 당황한 강아지',
+      channelName: '[THE SOY]루퐁이네',
+      category: '반려동물',
+    ),
+    VideoModel(
+      youtubeId: 'MToDABYSEwk',
+      title: '나는 태어난 지 10일 된 토끼 새끼다 [애니멀봐 나새끼 10호]ㅣI’m A 10 Days Old Rabbit/ Bunny!',
+      channelName: 'SBS TV동물농장x애니멀봐 공식 유튜브 채널입니다!',
+      category: '반려동물',
+    ),
+    VideoModel(
+      youtubeId: 'WVgJzNtJh-w',
+      title: "수학 강사 정승제 '백지 상태에서 미분 정복' 3시간 특강",
+      channelName: '침착맨',
+      category: '수학',
+    ),
+    VideoModel(
+      youtubeId: '4eqeQb6iUIE',
+      title: '[VIVALDI] 4 Seasons 사계 - Winter 겨울 ㅣStefan Plewniak 스테판 플레브니악 - 베르사유 궁전 왕립 오페라 오케스트라',
+      channelName: 'MAGE PD_메이지 프로덕션',
+      category: '음악',
+    ),
+    VideoModel(
+      youtubeId: 'oippSXvxUlw',
+      title: '당신이 수학을 모르는 이유. (feat. 불완전성의 정리)',
+      channelName: 'Veritasium 한국어 - 베리타시움',
+      category: '수학',
+    ),
+    VideoModel(
+      youtubeId: 'KoWgusQpS9Q',
+      title: '[ENG] SMTM9 [10회] CREDIT (Feat. 염따, 기리보이, Zion.T) - 릴보이 @파이널 2R EP.10 | Mnet 201218 방송',
+      channelName: 'Mnet TV',
+      category: '랩',
+    ),
+    VideoModel(
+      youtubeId: '07VAY7xut84',
+      title: "[현장영상] ‘축구의 신’도 헛웃음 지었다…세계 최강 얼어붙게 만든 카보베르데 / KBS 2026 북중미 월드컵 2026.07.04.",
+      channelName: 'KBS News',
+      category: '축구',
+    ),
+    VideoModel(
+      youtubeId: 'dz99H8ptIsg',
+      title: '🔥25분 삭제!🔥"SSS급" 현대 무기 "곡사포"를 소환해 일대를 초토화 시켜버리는 전직 킬러의 이세계 생활기',
+      channelName: '행덕이의 애니리뷰',
+      category: '애니메이션',
+    ),
   ];
 
   void openMenu() {
@@ -71,8 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               color: const Color(0xFF1F1F1F),
               child: Image.network(
-                'https://img.youtube.com/vi/${video.youtubeId}/0.jpg',
-                fit: BoxFit.cover,
+                'https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg',
               ),
             ),
             Padding(
