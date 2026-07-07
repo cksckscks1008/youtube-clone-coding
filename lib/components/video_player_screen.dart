@@ -19,6 +19,8 @@ class VideoPlayerScreen extends StatefulWidget {
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late YoutubePlayerController _controller;
+  late TextEditingController _commentController;
+  final FocusNode _searchFocusNode = FocusNode();
   bool isLiked = false;
   bool isDisliked = false;
   bool isCommentOpen = false;
@@ -83,11 +85,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       initialVideoId: widget.video.youtubeId,
       flags: const YoutubePlayerFlags(autoPlay: false, mute: false),
     );
+    _commentController = TextEditingController();
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _commentController.dispose();
+    _searchFocusNode.dispose();
     super.dispose();
   }
 
@@ -236,119 +241,319 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                             ),
                           ),
                           builder: (context) {
-                            return Container(
-                              height: MediaQuery.of(context).size.height * 0.7,
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    '댓글',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Row(
-                                      children: [
-                                        Ink(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10),
-                                            color: Colors.white38
-                                          ),
-                                            child: InkWell(
-                                              onTap: setState(() {
-                                                isToggleComment = !isToggleComment;
-                                              });,
-                                              child: Text('인기순', style: TextStyle(color: isToggleComment ? Colors.black : Colors.white),),
-                                            )
+                            return StatefulBuilder(
+                              builder: (context, setModalState) {
+                                return Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.7,
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        '댓글',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        const SizedBox(width: 5),
-                                        Ink(
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Row(
+                                        children: [
+                                          Ink(
                                             decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(10),
-                                                color: Colors.white
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: isToggleComment
+                                                  ? Colors.white
+                                                  : Colors.white12,
                                             ),
                                             child: InkWell(
-                                              child: Text('최신순', style: TextStyle(color: isToggleComment ? Colors.white : Colors.black),),
-                                            )
-                                        )
-
-                                    ]
-                                  ),
-                                  const Divider(color: Colors.white24),
-                                  Expanded(
-                                    child: ListView.builder(
-                                      itemCount: dummyComments.length,
-                                      itemBuilder: (context, index) {
-                                        return ListTile(
-                                          leading: CircleAvatar(radius: 13),
-                                          title:
-                                              dummyComments[index].afterMinute > 60
-                                              ? Text(
-                                                  '@${dummyComments[index].commentId} • ${dummyComments[index].afterMinute ~/ 60}시간 전',
-                                                  style: const TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 12,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              onTap: () {
+                                                setModalState(() {
+                                                  isToggleComment = true;
+                                                });
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                      horizontal: 12,
+                                                      vertical: 6,
+                                                    ),
+                                                child: Text(
+                                                  '인기순',
+                                                  style: TextStyle(
+                                                    color: isToggleComment
+                                                        ? Colors.black
+                                                        : Colors.white,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
-                                                )
-                                              : Text(
-                                                  '@${dummyComments[index].commentId} • ${dummyComments[index].afterMinute}분 전',
-                                                  style: const TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 12,
-                                                  ),
-                                                ),
-                                          subtitle: Column(
-                                            children: [
-                                              Text(
-                                                dummyComments[index]
-                                                    .commentContext,
-                                                style: const TextStyle(
-                                                  color: Colors.white,
                                                 ),
                                               ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 5),
+                                          Ink(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: isToggleComment
+                                                  ? Colors.white12
+                                                  : Colors.white,
+                                            ),
+                                            child: InkWell(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              onTap: () {
+                                                setModalState(() {
+                                                  isToggleComment = false;
+                                                });
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                      horizontal: 12,
+                                                      vertical: 6,
+                                                    ),
+                                                child: Text(
+                                                  '최신순',
+                                                  style: TextStyle(
+                                                    color: isToggleComment
+                                                        ? Colors.white
+                                                        : Colors.black,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const Divider(color: Colors.white10),
+                                      Expanded(
+                                        child: ListView.builder(
+                                          itemCount: dummyComments.length,
+                                          itemBuilder: (context, index) {
+                                            return ListTile(
+                                              leading: const CircleAvatar(
+                                                radius: 13,
+                                              ),
+                                              title:
+                                                  dummyComments[index]
+                                                          .afterMinute >
+                                                      60
+                                                  ? Text(
+                                                      '@${dummyComments[index].commentId} • ${dummyComments[index].afterMinute ~/ 60}시간 전',
+                                                      style: const TextStyle(
+                                                        color: Colors.grey,
+                                                        fontSize: 12,
+                                                      ),
+                                                    )
+                                                  : Text(
+                                                      '@${dummyComments[index].commentId} • ${dummyComments[index].afterMinute}분 전',
+                                                      style: const TextStyle(
+                                                        color: Colors.grey,
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                              subtitle: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                  IconButton(
-                                                    onPressed: onDislike,
-                                                    icon: Icon(
-                                                      Icons
-                                                          .thumb_up_alt_outlined,
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    dummyComments[index]
+                                                        .commentContext,
+                                                    style: const TextStyle(
                                                       color: Colors.white,
-                                                      size: 17,
                                                     ),
                                                   ),
-                                                  IconButton(
-                                                    onPressed: onDislike,
-                                                    icon: Icon(
-                                                      Icons
-                                                          .thumb_down_alt_outlined,
-                                                      color: Colors.white,
-                                                      size: 17,
-                                                    ),
-                                                  ),
-                                                  IconButton(
-                                                    onPressed: onDislike,
-                                                    icon: Icon(
-                                                      Icons.comment,
-                                                      color: Colors.white,
-                                                      size: 17,
-                                                    ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          setModalState(() {
+                                                            if (dummyComments[index]
+                                                                .isDisliked) {
+                                                              dummyComments[index]
+                                                                      .isDisliked =
+                                                                  false;
+                                                              dummyComments[index]
+                                                                      .isLiked =
+                                                                  true;
+                                                            } else if (dummyComments[index]
+                                                                .isLiked) {
+                                                              dummyComments[index]
+                                                                      .isLiked =
+                                                                  false;
+                                                            } else {
+                                                              dummyComments[index]
+                                                                      .isLiked =
+                                                                  true;
+                                                            }
+                                                          });
+                                                        },
+                                                        icon:
+                                                            dummyComments[index]
+                                                                .isLiked
+                                                            ? Icon(
+                                                                Icons
+                                                                    .thumb_up_alt,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 17,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .thumb_up_alt_outlined,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 17,
+                                                              ),
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          setModalState(() {
+                                                            if (dummyComments[index]
+                                                                .isLiked) {
+                                                              dummyComments[index]
+                                                                      .isLiked =
+                                                                  false;
+                                                              dummyComments[index]
+                                                                      .isDisliked =
+                                                                  true;
+                                                            } else if (dummyComments[index]
+                                                                .isDisliked) {
+                                                              dummyComments[index]
+                                                                      .isDisliked =
+                                                                  false;
+                                                            } else {
+                                                              dummyComments[index]
+                                                                      .isDisliked =
+                                                                  true;
+                                                            }
+                                                          });
+                                                        },
+                                                        icon:
+                                                            dummyComments[index]
+                                                                .isDisliked
+                                                            ? Icon(
+                                                                Icons
+                                                                    .thumb_down_alt,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 17,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .thumb_down_alt_outlined,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 17,
+                                                              ),
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          setModalState(() {
+                                                            _searchFocusNode
+                                                                .requestFocus();
+                                                          });
+                                                        },
+                                                        icon: const Icon(
+                                                          Icons.comment,
+                                                          color: Colors.white,
+                                                          size: 17,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      const Divider(color: Colors.white10),
+                                      Container(
+                                        width: MediaQuery.of(
+                                          context,
+                                        ).size.width,
+                                        height: 35,
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              child: SearchBar(
+                                                focusNode: _searchFocusNode,
+                                                controller: _commentController,
+                                                onSubmitted: (value) {
+                                                  if (value.trim().isEmpty)
+                                                    return;
+                                                  setModalState(() {
+                                                    dummyComments.insert(
+                                                      0,
+                                                      CommentModel(
+                                                        commentId: "ifari1588",
+                                                        commentContext: value,
+                                                        afterMinute: 0,
+                                                      ),
+                                                    );
+                                                    _commentController.clear();
+                                                  });
+                                                },
+                                                backgroundColor:
+                                                    WidgetStatePropertyAll(
+                                                      Colors.white10,
+                                                    ),
+                                                hintText: '댓글 올리기...',
+                                                hintStyle:
+                                                    WidgetStatePropertyAll(
+                                                      TextStyle(
+                                                        color: Colors.white54,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                textStyle:
+                                                    WidgetStatePropertyAll(
+                                                      TextStyle(
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                              ),
+                                            ),
+                                            const SizedBox(width: 5),
+                                            Padding(
+                                              padding: EdgeInsets.zero,
+                                              child: IconButton(
+                                                style: IconButton.styleFrom(
+                                                  backgroundColor:
+                                                      Colors.white10,
+                                                ),
+                                                onPressed: onDislike,
+                                                icon: Icon(
+                                                  Icons.attach_money,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                );
+                              },
                             );
                           },
                         );
@@ -437,15 +642,25 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                     itemCount: widget.allVideos.length,
                     itemBuilder: (context, index) {
                       final recommendedVideo = widget.allVideos[index];
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 24),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => VideoPlayerScreen(
+                                video: recommendedVideo,
+                                allVideos: widget.allVideos,
+                              ),
+                            ),
+                          );
+                        },
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               height: 200,
                               width: double.infinity,
-                              color: const Color(0xFF1F1F1F),
+                              color: Color(0xFF1F1F1F),
                               child: Image.network(
                                 'https://img.youtube.com/vi/${recommendedVideo.youtubeId}/maxresdefault.jpg',
                                 fit: BoxFit.cover,
