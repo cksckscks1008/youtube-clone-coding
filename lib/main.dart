@@ -5,6 +5,7 @@ import 'package:youtube_app_clonecoding/components/menu_image_button.dart';
 import 'package:youtube_app_clonecoding/components/mypage_screen.dart';
 import 'package:youtube_app_clonecoding/components/search_screen.dart';
 import 'package:youtube_app_clonecoding/components/menu_button.dart';
+import 'package:youtube_app_clonecoding/components/shorts_screen.dart';
 import 'package:youtube_app_clonecoding/components/video_model.dart';
 
 void main() {
@@ -135,9 +136,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final List<Widget> _mainPages = [
       const HomeScreen(),
-      const Center(
-        child: Text('Shorts 화면!', style: TextStyle(color: Colors.white)),
-      ),
+      const ShortsScreen(),
       const SearchScreen(),
       MypageScreen(
         allVideos: allVideos,
@@ -147,9 +146,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         key: ScaffoldKey,
-        backgroundColor: const Color(0xFF0F0F0F),
+        backgroundColor: Colors.grey[950],
         drawer: Drawer(
-          backgroundColor: const Color(0xFF212121),
+          backgroundColor: Colors.grey[900],
           child: Column(
             children: [
               Theme(
@@ -263,7 +262,7 @@ class _MyAppState extends State<MyApp> {
                       imagePath: 'assets/youtube_create.jpg',
                     ),
                     Container(
-                      decoration: BoxDecoration(color: Color(0xFF212121)),
+                      decoration: BoxDecoration(color: Colors.grey[900]),
                       child: RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MypageButton extends StatelessWidget {
   final IconData icon;
   final String text;
+
   const MypageButton({
     super.key,
     required this.icon,

@@ -211,7 +211,7 @@ class _MypageScreenState extends State<MypageScreen> {
                           ),
                         ),
                         Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-                        const SizedBox(width: 250,),
+                        const SizedBox(width: 220,),
                         Icon(Icons.add, color: Colors.white, size: 36,)
                       ],
                     ),
