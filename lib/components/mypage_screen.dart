@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'video_model.dart';
 import 'mypage_button.dart';
 
@@ -17,7 +19,7 @@ class _MypageScreenState extends State<MypageScreen> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Color(0xFF0F0F0F),
+            backgroundColor: AppColors.background,
             title: Padding(
               padding: const EdgeInsets.all(0),
               child: Ink(
@@ -33,10 +35,8 @@ class _MypageScreenState extends State<MypageScreen> {
                     children: [
                       Text(
                         '계정',
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: AppTextStyle.titleMedium.copyWith(
                           fontWeight: FontWeight.w500,
-                          fontSize: 16,
                         ),
                       ),
                       const SizedBox(width: 7),
@@ -71,7 +71,7 @@ class _MypageScreenState extends State<MypageScreen> {
               ),
             ],
           ),
-          backgroundColor: Color(0xFF0F0F0F),
+          backgroundColor: AppColors.background,
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -91,8 +91,7 @@ class _MypageScreenState extends State<MypageScreen> {
                           children: [
                             Text(
                               'ifari1588',
-                              style: TextStyle(
-                                color: Colors.white,
+                              style: AppTextStyle.titleLarge.copyWith(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w800,
                               ),
@@ -103,14 +102,13 @@ class _MypageScreenState extends State<MypageScreen> {
                           children: [
                             Text(
                               '@ifari1588  •  ',
-                              style: TextStyle(
-                                color: Colors.white,
+                              style: AppTextStyle.titleMedium.copyWith(
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
                               '채널 보기 >',
-                              style: TextStyle(
+                              style: AppTextStyle.titleMedium.copyWith(
                                 color: Colors.white54,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -132,8 +130,7 @@ class _MypageScreenState extends State<MypageScreen> {
                         const SizedBox(width: 10),
                         Text(
                           '기록',
-                          style: TextStyle(
-                            color: Colors.white,
+                          style: AppTextStyle.titleLarge.copyWith(
                             fontSize: 19,
                             fontWeight: FontWeight.w800,
                           ),
@@ -174,8 +171,7 @@ class _MypageScreenState extends State<MypageScreen> {
                                         '${widget.allVideos[index].title}',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: Colors.white,
+                                        style: AppTextStyle.titleMedium.copyWith(
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -183,10 +179,9 @@ class _MypageScreenState extends State<MypageScreen> {
                                         '${widget.allVideos[index].channelName}',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: AppTextStyle.caption.copyWith(
                                           color: Colors.white60,
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
@@ -204,8 +199,7 @@ class _MypageScreenState extends State<MypageScreen> {
                         const SizedBox(width: 10),
                         Text(
                           '재생목록',
-                          style: TextStyle(
-                            color: Colors.white,
+                          style: AppTextStyle.titleLarge.copyWith(
                             fontSize: 19,
                             fontWeight: FontWeight.w800,
                           ),
@@ -248,8 +242,7 @@ class _MypageScreenState extends State<MypageScreen> {
                                         '${widget.allVideos[index].title}',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: Colors.white,
+                                        style: AppTextStyle.titleMedium.copyWith(
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -257,8 +250,7 @@ class _MypageScreenState extends State<MypageScreen> {
                                         '${widget.allVideos[index].channelName}',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: Colors.white60,
+                                        style: AppTextStyle.caption.copyWith(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 
 class MenuButton extends StatelessWidget {
   Function click;
@@ -29,11 +30,7 @@ class MenuButton extends StatelessWidget {
                 const SizedBox(width: 20),
                 Text(
                   title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
+                  style: AppTextStyle.titleLarge
                 ),
               ],
             ),

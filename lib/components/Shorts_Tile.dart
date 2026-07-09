@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'shorts_button.dart';
 import 'shorts_model.dart';
 import 'shorts_profile.dart';
@@ -108,8 +109,7 @@ class _ShortsTileState extends State<ShortsTile> {
                     const SizedBox(width: 7),
                     Text(
                       '@${widget.shortsData.channelName}',
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: AppTextStyle.body.copyWith(
                         fontWeight: FontWeight.w500,
                         shadows: [
                           Shadow(
@@ -129,10 +129,9 @@ class _ShortsTileState extends State<ShortsTile> {
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(13),
                       ),
-                      child: const Text(
+                      child: Text(
                         '가입',
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: AppTextStyle.body.copyWith(
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -142,8 +141,7 @@ class _ShortsTileState extends State<ShortsTile> {
                 const SizedBox(height: 7),
                 Text(
                   widget.shortsData.title,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: AppTextStyle.body.copyWith(
                     fontWeight: FontWeight.w400,
                     shadows: [
                       Shadow(
@@ -154,12 +152,11 @@ class _ShortsTileState extends State<ShortsTile> {
                     ],
                   ),
                 ),
-                const Text(
+                Text(
                   '수수료 지급',
-                  style: TextStyle(
+                  style: AppTextStyle.body.copyWith(
                     fontSize: 12.5,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
                     shadows: [
                       Shadow(
                         color: Colors.black38,
@@ -188,8 +185,7 @@ class _ShortsTileState extends State<ShortsTile> {
                         Expanded(
                           child: Text(
                             widget.shortsData.song,
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: AppTextStyle.body.copyWith(
                               fontWeight: FontWeight.w500,
                               fontSize: 14.5,
                             ),

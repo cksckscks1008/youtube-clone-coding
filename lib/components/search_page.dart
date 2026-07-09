@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/components/home_screen.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_app_clonecoding/components/search_appbar.dart';
 
 class SearchPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F0F0F),
+      backgroundColor: AppColors.background,
       appBar: SearchAppbar(
         onSearchSubmitted: (value) {
           setState(() {
@@ -32,7 +33,7 @@ class _SearchPageState extends State<SearchPage> {
           ? Center(
         child: Text(
           '최근 검색 기록이 없습니다.',
-          style: TextStyle(color: Colors.white54),
+          style: AppTextStyle.body.copyWith(color: Colors.white54),
         ),
       )
           : ListView.builder(
@@ -42,7 +43,7 @@ class _SearchPageState extends State<SearchPage> {
             leading: Icon(Icons.history, color: Colors.white70),
             title: Text(
               widget.history[index],
-              style: TextStyle(color: Colors.white, fontSize: 15),
+              style: AppTextStyle.body.copyWith(color: Colors.white, fontSize: 15),
             ),
             trailing: IconButton(
               icon: Icon(Icons.close, color: Colors.white54, size: 20),

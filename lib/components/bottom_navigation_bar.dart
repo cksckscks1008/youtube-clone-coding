@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
 
 class BottomNavigationbar extends StatefulWidget {
   final int currentIndex;
@@ -28,9 +29,9 @@ class _BottomNavigationbarState extends State<BottomNavigationbar> {
           onTap: (int index) {
             widget.onTap(index);
           },
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white60,
+          backgroundColor: AppColors.bottomNavBackground,
+          selectedItemColor: AppColors.textPrimary,
+          unselectedItemColor: AppColors.textSecondary,
 
           items: [
             BottomNavigationBarItem(

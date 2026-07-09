@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 
 class ShortsButton extends StatelessWidget {
   final IconData icon;
@@ -35,9 +36,8 @@ class ShortsButton extends StatelessWidget {
               const SizedBox(height: 5),
               Text(
                 text,
-                style: TextStyle(
+                style: AppTextStyle.body.copyWith(
                   fontWeight: FontWeight.w500,
-                  color: Colors.white,
                   shadows: [
                     Shadow(
                       color: Colors.black38,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 
 class CategorieButton extends StatelessWidget {
   final bool isSelected;
@@ -22,14 +24,14 @@ class CategorieButton extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: isSelected ? Colors.white : Colors.white12,
+            color: isSelected ? AppColors.surfaceSelected : AppColors.surface,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
             child: Text(
               text,
-              style: TextStyle(
-                color: isSelected ? Colors.black : Colors.white,
+              style: AppTextStyle.body.copyWith(
+                color: isSelected ? Colors.black : AppColors.textPrimary,
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
               ),

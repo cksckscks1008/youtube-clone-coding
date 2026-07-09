@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_app_clonecoding/components/appbar/appbar.dart';
 import 'package:youtube_app_clonecoding/main.dart';
 import 'package:youtube_app_clonecoding/components/video_model.dart';
@@ -156,16 +158,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     video.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                    style: AppTextStyle.body.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
                     '${video.channelName} • ${video.category}',
-                    style: const TextStyle(color: Colors.grey, fontSize: 12),
+                    style: AppTextStyle.caption
                   ),
                 ],
               ),
@@ -182,8 +182,8 @@ class _HomeScreenState extends State<HomeScreen> {
         : _allVideos.where((v) => v.category == category).toList();
 
     if (filteredVideos.isEmpty) {
-      return const Center(
-        child: Text('해당 카테고리의 영상이 없습니다.', style: TextStyle(color: Colors.grey)),
+      return Center(
+        child: Text('해당 카테고리의 영상이 없습니다.', style: AppTextStyle.caption.copyWith(fontSize: 14),),
       );
     }
 
@@ -217,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: Color(0xFF0F0F0F),
+      backgroundColor: AppColors.background,
 
       body: CustomScrollView(
         slivers: [

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 
 class SearchAppbar extends StatefulWidget implements PreferredSizeWidget {
   final Function(String) onSearchSubmitted;
@@ -39,10 +41,10 @@ class _SearchAppbarState extends State<SearchAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xFF0F0F0F),
+      backgroundColor: AppColors.background,
       leading: IconButton(
         onPressed: () => back(context),
-        icon: Icon(Icons.arrow_back, color: Colors.white),
+        icon: Icon(Icons.arrow_back, color: AppColors.textPrimary),
       ),
       leadingWidth: 48,
       title: Row(
@@ -65,14 +67,14 @@ class _SearchAppbarState extends State<SearchAppbar> {
                 padding: WidgetStatePropertyAll(
                   EdgeInsets.symmetric(horizontal: 12.0, vertical: 0),
                 ),
-                backgroundColor: WidgetStatePropertyAll(Colors.white12),
+                backgroundColor: WidgetStatePropertyAll(AppColors.surface),
                 controller: _controller,
                 textStyle: WidgetStatePropertyAll(
-                  TextStyle(color: Colors.white),
+                  AppTextStyle.body,
                 ),
                 hintText: 'YouTube 검색',
                 hintStyle: WidgetStatePropertyAll(
-                  TextStyle(color: Colors.white60, fontWeight: FontWeight.w500),
+                  AppTextStyle.body.copyWith(color: AppColors.textSecondary, fontWeight: FontWeight.w500),
                 ),
                 trailing: _isEmpty
                     ? null
@@ -81,7 +83,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
                           onPressed: () {
                             _controller.clear();
                           },
-                          icon: Icon(Icons.close, color: Colors.white),
+                          icon: Icon(Icons.close, color: AppColors.textPrimary),
                         ),
                       ],
               ),
@@ -95,9 +97,9 @@ class _SearchAppbarState extends State<SearchAppbar> {
                 onPressed: () {},
                 iconSize: 20,
                 style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(Colors.white12),
+                  backgroundColor: WidgetStatePropertyAll(AppColors.surface),
                 ),
-                icon: const Icon(Icons.mic, color: Colors.white),
+                icon: const Icon(Icons.mic, color: AppColors.textPrimary),
               ),
             ]
           : [],

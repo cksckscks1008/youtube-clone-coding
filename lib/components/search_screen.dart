@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_app_clonecoding/components/appbar/appbar.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -12,7 +14,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F0F0F),
+      backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
           const Youtubepppbar(
@@ -23,10 +25,9 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Container(
               height: 500,
               alignment: Alignment.center,
-              child: const Text(
+              child: Text(
                 '검색 화면!',
-                style: TextStyle(
-                    color: Colors.white,
+                style: AppTextStyle.titleLarge.copyWith(
                     fontSize: 24,
                     fontWeight: FontWeight.bold
                 ),

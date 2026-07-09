@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_app_clonecoding/components/video_model.dart';
 import 'comment_model.dart';
@@ -106,7 +107,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
           widget.video.category,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: AppTextStyle.body.copyWith(fontSize: 16),
         ),
       ),
       body: SingleChildScrollView(
@@ -114,6 +115,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             YoutubePlayer(
+              width: MediaQuery.of(context).size.width,
               controller: _controller,
               showVideoProgressIndicator: true,
               progressIndicatorColor: Colors.red,
@@ -125,8 +127,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 children: [
                   Text(
                     widget.video.title,
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: AppTextStyle.body.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -134,7 +135,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                   const SizedBox(height: 8),
                   Text(
                     '@${widget.video.channelName}',
-                    style: const TextStyle(color: Colors.grey, fontSize: 14),
+                    style: AppTextStyle.caption.copyWith(color: Colors.grey, fontSize: 14),
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -251,10 +252,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const Text(
+                                      Text(
                                         '댓글',
-                                        style: TextStyle(
-                                          color: Colors.white,
+                                        style: AppTextStyle.body.copyWith(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -286,7 +286,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                     ),
                                                 child: Text(
                                                   '인기순',
-                                                  style: TextStyle(
+                                                  style: AppTextStyle.body.copyWith(
                                                     color: isToggleComment
                                                         ? Colors.black
                                                         : Colors.white,
@@ -321,7 +321,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                     ),
                                                 child: Text(
                                                   '최신순',
-                                                  style: TextStyle(
+                                                  style: AppTextStyle.body.copyWith(
                                                     color: isToggleComment
                                                         ? Colors.white
                                                         : Colors.black,
@@ -348,14 +348,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                       60
                                                   ? Text(
                                                       '@${dummyComments[index].commentId} • ${dummyComments[index].afterMinute ~/ 60}시간 전',
-                                                      style: const TextStyle(
+                                                      style: AppTextStyle.caption.copyWith(
                                                         color: Colors.grey,
                                                         fontSize: 12,
                                                       ),
                                                     )
                                                   : Text(
                                                       '@${dummyComments[index].commentId} • ${dummyComments[index].afterMinute}분 전',
-                                                      style: const TextStyle(
+                                                      style: AppTextStyle.caption.copyWith(
                                                         color: Colors.grey,
                                                         fontSize: 12,
                                                       ),
@@ -368,9 +368,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                   Text(
                                                     dummyComments[index]
                                                         .commentContext,
-                                                    style: const TextStyle(
-                                                      color: Colors.white,
-                                                    ),
+                                                    style: AppTextStyle.body
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
@@ -517,7 +515,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                 hintText: '댓글 올리기...',
                                                 hintStyle:
                                                     WidgetStatePropertyAll(
-                                                      TextStyle(
+                                                      AppTextStyle.body.copyWith(
                                                         color: Colors.white54,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -526,9 +524,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                     ),
                                                 textStyle:
                                                     WidgetStatePropertyAll(
-                                                      TextStyle(
-                                                        color: Colors.white,
-                                                      ),
+                                                      AppTextStyle.body
                                                     ),
                                               ),
                                             ),
@@ -565,17 +561,16 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                const Text(
+                                Text(
                                   '댓글',
-                                  style: TextStyle(
-                                    color: Colors.white,
+                                  style: AppTextStyle.body.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
                                 const SizedBox(width: 6),
                                 Text(
                                   '$commentNumber',
-                                  style: const TextStyle(color: Colors.white38),
+                                  style: AppTextStyle.body.copyWith(color: Colors.white38),
                                 ),
                                 const Spacer(),
                                 Container(
@@ -617,7 +612,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                     children: [
                                       Text(
                                         dummyComments[0].commentContext,
-                                        style: const TextStyle(
+                                        style: AppTextStyle.body.copyWith(
                                           color: Colors.white,
                                           fontSize: 12,
                                         ),
@@ -691,10 +686,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                         const SizedBox(height: 6),
                                         Text(
                                           '${recommendedVideo.channelName} • ${recommendedVideo.category}',
-                                          style: const TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                          ),
+                                          style: AppTextStyle.caption
                                         ),
                                       ],
                                     ),

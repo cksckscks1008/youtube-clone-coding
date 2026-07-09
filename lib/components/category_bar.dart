@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/components/appbar/components/categorie_button.dart';
 
 class CategoryBar extends StatelessWidget {
@@ -18,7 +19,7 @@ class CategoryBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFF0F0F0F),
+      color: AppColors.background,
       height: 48.0,
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: ListView.builder(

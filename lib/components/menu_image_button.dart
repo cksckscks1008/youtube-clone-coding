@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 
 class MenuImageButton extends StatelessWidget {
   final Function click;
@@ -37,11 +38,7 @@ class MenuImageButton extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
+                  style: AppTextStyle.titleLarge
                 ),
               ),
             ],
