@@ -26,6 +26,6 @@ class AppTextStyle {
 
   static final TextStyle caption = _base.copyWith(
     fontSize: 12,
-    color: Colors.grey,
+    color: AppColors.grey,
   );
 }

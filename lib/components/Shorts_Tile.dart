@@ -185,10 +185,7 @@ class _ShortsTileState extends State<ShortsTile> {
                         Expanded(
                           child: Text(
                             widget.shortsData.song,
-                            style: AppTextStyle.body.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.5,
-                            ),
+                            style: AppTextStyle.body,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),

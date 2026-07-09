@@ -74,7 +74,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
                 ),
                 hintText: 'YouTube 검색',
                 hintStyle: WidgetStatePropertyAll(
-                  AppTextStyle.body.copyWith(color: AppColors.textSecondary, fontWeight: FontWeight.w500),
+                  AppTextStyle.body.copyWith(color: AppColors.textSecondary),
                 ),
                 trailing: _isEmpty
                     ? null

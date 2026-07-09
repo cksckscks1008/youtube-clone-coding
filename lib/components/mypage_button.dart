@@ -19,9 +19,7 @@ class MypageButton extends StatelessWidget {
             const SizedBox(width: 20),
             Text(
               text,
-              style: AppTextStyle.titleMedium.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
+              style: AppTextStyle.titleMedium
             ),
           ],
         ),

@@ -32,8 +32,6 @@ class CategorieButton extends StatelessWidget {
               text,
               style: AppTextStyle.body.copyWith(
                 color: isSelected ? Colors.black : AppColors.textPrimary,
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
               ),
             ),
           ),

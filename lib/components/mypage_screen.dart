@@ -35,9 +35,7 @@ class _MypageScreenState extends State<MypageScreen> {
                     children: [
                       Text(
                         '계정',
-                        style: AppTextStyle.titleMedium.copyWith(
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: AppTextStyle.titleMedium
                       ),
                       const SizedBox(width: 7),
                       Icon(
@@ -102,15 +100,12 @@ class _MypageScreenState extends State<MypageScreen> {
                           children: [
                             Text(
                               '@ifari1588  •  ',
-                              style: AppTextStyle.titleMedium.copyWith(
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyle.titleMedium
                             ),
                             Text(
                               '채널 보기 >',
                               style: AppTextStyle.titleMedium.copyWith(
                                 color: Colors.white54,
-                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ],
@@ -171,9 +166,7 @@ class _MypageScreenState extends State<MypageScreen> {
                                         '${widget.allVideos[index].title}',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: AppTextStyle.titleMedium.copyWith(
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: AppTextStyle.titleMedium
                                       ),
                                       Text(
                                         '${widget.allVideos[index].channelName}',
@@ -242,9 +235,7 @@ class _MypageScreenState extends State<MypageScreen> {
                                         '${widget.allVideos[index].title}',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: AppTextStyle.titleMedium.copyWith(
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: AppTextStyle.titleMedium
                                       ),
                                       Text(
                                         '${widget.allVideos[index].channelName}',

@@ -37,7 +37,6 @@ class ShortsButton extends StatelessWidget {
               Text(
                 text,
                 style: AppTextStyle.body.copyWith(
-                  fontWeight: FontWeight.w500,
                   shadows: [
                     Shadow(
                       color: Colors.black38,

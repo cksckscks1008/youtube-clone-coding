@@ -129,7 +129,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                     widget.video.title,
                     style: AppTextStyle.body.copyWith(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -256,7 +255,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                         '댓글',
                                         style: AppTextStyle.body.copyWith(
                                           fontSize: 18,
-                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                       const SizedBox(height: 10),
@@ -290,7 +288,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                     color: isToggleComment
                                                         ? Colors.black
                                                         : Colors.white,
-                                                    fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
                                               ),
@@ -325,7 +322,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                     color: isToggleComment
                                                         ? Colors.white
                                                         : Colors.black,
-                                                    fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
                                               ),
@@ -517,9 +513,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                                     WidgetStatePropertyAll(
                                                       AppTextStyle.body.copyWith(
                                                         color: Colors.white54,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontSize: 14,
                                                       ),
                                                     ),
                                                 textStyle:
@@ -563,9 +556,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                               children: [
                                 Text(
                                   '댓글',
-                                  style: AppTextStyle.body.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                  style: AppTextStyle.body
                                 ),
                                 const SizedBox(width: 6),
                                 Text(
@@ -677,11 +668,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                           recommendedVideo.title,
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          style: AppTextStyle.body
                                         ),
                                         const SizedBox(height: 6),
                                         Text(

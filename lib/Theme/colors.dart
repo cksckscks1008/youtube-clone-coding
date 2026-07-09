@@ -12,4 +12,7 @@ class AppColors {
   static const Color textPrimary = Colors.white;
   static const Color textSecondary = Colors.white60;
   static const Color textDisabled = Colors.white38;
+
+  static const Color grey = Colors.grey;
+  static const Color primary = Colors.blue;
 }

@@ -158,9 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     video.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: AppTextStyle.body.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyle.body
                   ),
                   const SizedBox(height: 6),
                   Text(
