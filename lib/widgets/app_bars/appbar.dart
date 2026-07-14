@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/components/category_bar.dart';
-import 'package:youtube_app_clonecoding/components/search_page.dart';
+import 'package:youtube_app_clonecoding/widgets/category/category_bar.dart';
+import 'package:youtube_app_clonecoding/screens/search/search_page.dart';
 
 class Youtubepppbar extends StatefulWidget {
   final Function(int)? onCategorieSelected;

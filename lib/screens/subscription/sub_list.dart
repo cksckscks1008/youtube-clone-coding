@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/components/channel_model.dart';
-import 'package:youtube_app_clonecoding/components/default_appbar.dart';
-import 'package:youtube_app_clonecoding/components/sub_list_tile.dart';
-import 'package:youtube_app_clonecoding/components/sub_modal_button.dart';
+import 'package:youtube_app_clonecoding/models/channel_model.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bars/default_appbar.dart';
+import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_list_tile.dart';
+import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_modal_button.dart';
 
 enum SortStatus {
   nears,

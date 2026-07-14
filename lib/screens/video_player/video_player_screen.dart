@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:youtube_app_clonecoding/components/video_model.dart';
-import 'comment_model.dart';
+import 'package:youtube_app_clonecoding/models/video_model.dart';
+import '../../models/comment_model.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
   final VideoModel video;

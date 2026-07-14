@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
-import 'search_page.dart';
+import '../../screens/search/search_page.dart';
 
 class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
 

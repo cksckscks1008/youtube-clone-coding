@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'package:youtube_app_clonecoding/components/appbar/appbar.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bars/appbar.dart';
 import 'package:youtube_app_clonecoding/main.dart';
-import 'package:youtube_app_clonecoding/components/video_model.dart';
-import 'video_player_screen.dart';
+import 'package:youtube_app_clonecoding/models/video_model.dart';
+import '../video_player/video_player_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

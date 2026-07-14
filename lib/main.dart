@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/components/bottom_navigation_bar.dart';
-import 'package:youtube_app_clonecoding/components/home_screen.dart';
-import 'package:youtube_app_clonecoding/components/menu_image_button.dart';
-import 'package:youtube_app_clonecoding/components/mypage_screen.dart';
-import 'package:youtube_app_clonecoding/components/search_screen.dart';
-import 'package:youtube_app_clonecoding/components/menu_button.dart';
-import 'package:youtube_app_clonecoding/components/shorts_screen.dart';
-import 'package:youtube_app_clonecoding/components/video_model.dart';
+import 'package:youtube_app_clonecoding/widgets/navigation/bottom_navigation_bar.dart';
+import 'package:youtube_app_clonecoding/screens/home/home_screen.dart';
+import 'package:youtube_app_clonecoding/widgets/drawer/menu_image_button.dart';
+import 'package:youtube_app_clonecoding/screens/mypage/mypage_screen.dart';
+import 'package:youtube_app_clonecoding/screens/subscription/subscription_screen.dart';
+import 'package:youtube_app_clonecoding/widgets/drawer/menu_button.dart';
+import 'package:youtube_app_clonecoding/screens/shorts/shorts_screen.dart';
+import 'package:youtube_app_clonecoding/models/video_model.dart';
 
 void main() {
   runApp(const MyApp());

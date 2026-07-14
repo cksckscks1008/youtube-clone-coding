@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/components/category_bar.dart';
-import 'package:youtube_app_clonecoding/components/search_page.dart';
-import 'package:youtube_app_clonecoding/components/sub_list.dart';
-import 'package:youtube_app_clonecoding/components/sub_profile.dart';
-import 'package:youtube_app_clonecoding/components/channel_model.dart';
+import 'package:youtube_app_clonecoding/widgets/category/category_bar.dart';
+import 'package:youtube_app_clonecoding/screens/search/search_page.dart';
+import 'package:youtube_app_clonecoding/screens/subscription/sub_list.dart';
+import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_profile.dart';
+import 'package:youtube_app_clonecoding/models/channel_model.dart';
 
 class SubAppbar extends StatefulWidget {
   final Function(int)? onCategorieSelected;

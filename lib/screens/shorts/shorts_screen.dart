@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/components/shorts_model.dart';
-import 'Shorts_Tile.dart';
+import 'package:youtube_app_clonecoding/models/shorts_model.dart';
+import 'widgets/Shorts_Tile.dart';
 
 class ShortsScreen extends StatefulWidget {
   const ShortsScreen({super.key});

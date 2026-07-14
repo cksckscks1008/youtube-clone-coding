@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'shorts_button.dart';
-import 'shorts_model.dart';
+import '../../../models/shorts_model.dart';
 import 'shorts_profile.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

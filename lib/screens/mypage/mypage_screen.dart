@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'video_model.dart';
-import 'mypage_button.dart';
+import '../../models/video_model.dart';
+import 'widgets/mypage_button.dart';
 
 class MypageScreen extends StatefulWidget {
   final List<VideoModel> allVideos;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
-import 'package:youtube_app_clonecoding/components/appbar/components/categorie_button.dart';
+import 'package:youtube_app_clonecoding/widgets/category/categorie_button.dart';
 
 class CategoryBar extends StatelessWidget {
   final List<String> categories;

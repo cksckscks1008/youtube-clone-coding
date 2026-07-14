@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'package:youtube_app_clonecoding/components/appbar/appbar.dart';
-import 'package:youtube_app_clonecoding/components/appbar/sub_appbar.dart';
-import 'package:youtube_app_clonecoding/components/sub_profile.dart';
-import 'video_model.dart';
-import 'video_player_screen.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bars/appbar.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bars/sub_appbar.dart';
+import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_profile.dart';
+import '../../models/video_model.dart';
+import '../video_player/video_player_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   final List<VideoModel> allVideo;
@@ -50,7 +50,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+              padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
