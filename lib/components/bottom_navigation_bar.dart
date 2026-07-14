@@ -44,7 +44,10 @@ class _BottomNavigationbarState extends State<BottomNavigationbar> {
               activeIcon: Icon(Icons.offline_bolt),
               label: 'Shorts',
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: '검색'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.video_library_outlined),
+              activeIcon: Icon(Icons.video_library),
+              label: '구독'),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
               activeIcon: Icon(Icons.person),

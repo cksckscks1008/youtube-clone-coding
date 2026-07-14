@@ -12,10 +12,9 @@ void main() {
   runApp(const MyApp());
 }
 
-final GlobalKey<ScaffoldState> ScaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class MyApp extends StatefulWidget {
-
   const MyApp({super.key});
 
   @override
@@ -58,8 +57,7 @@ class _MyAppState extends State<MyApp> {
     ),
     VideoModel(
       youtubeId: 'LvRZlXtCgSE',
-      title:
-      '【LCK】 T1 5꽉 끝 아쉬운 패배.. / 패자조 1라운드 상대 FUR / BLG 승리, 골든로드 도전 - 롤 이스포츠',
+      title: '【LCK】 T1 5꽉 끝 아쉬운 패배.. / 패자조 1라운드 상대 FUR / BLG 승리, 골든로드 도전 - 롤 이스포츠',
       channelName: 'THIRD[롤 백과사전]',
       category: '게임',
     ),
@@ -131,21 +129,19 @@ class _MyAppState extends State<MyApp> {
     ),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> _mainPages = [
       const HomeScreen(),
       const ShortsScreen(),
-      const SearchScreen(),
-      MypageScreen(
-        allVideos: allVideos,
-      ),
+      SearchScreen(allVideo: allVideos),
+      MypageScreen(allVideos: allVideos),
     ];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        key: ScaffoldKey,
+        key: scaffoldKey,
         backgroundColor: Colors.grey[950],
         drawer: Drawer(
           backgroundColor: Colors.grey[900],
@@ -167,7 +163,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
-
               Expanded(
                 child: ListView(
                   padding: EdgeInsets.zero,
@@ -231,7 +226,7 @@ class _MyAppState extends State<MyApp> {
                       title: "멤버십",
                       icon: Icons.stars_outlined,
                     ),
-                    Divider(color: Colors.white10),
+                    const Divider(color: Colors.white10),
                     MenuImageButton(
                       click: shopping,
                       title: "YouTube Premium",
@@ -262,23 +257,22 @@ class _MyAppState extends State<MyApp> {
                       imagePath: 'assets/youtube_create.jpg',
                     ),
                     Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                       decoration: BoxDecoration(color: Colors.grey[900]),
                       child: RichText(
                         textAlign: TextAlign.center,
-                        text: TextSpan(
-                          style: TextStyle(color: Colors.grey, fontSize: 10),
+                        text: const TextSpan(
+                          style: TextStyle(color: Colors.grey, fontSize: 10, height: 1.4),
                           children: [
-                            const TextSpan(
-                              text:
-                                  "© 2022 Google LLC, Sundar Pichai, 1600 Amphitheatre\nParkway, Mountain View CA 94043, USA, 0807-882-594 (무료),\nyt-support-solutions-kr@google.com, 호스팅: Google LLC,\n",
+                            TextSpan(
+                              text: "© 2022 Google LLC, Sundar Pichai, 1600 Amphitheatre\nParkway, Mountain View CA 94043, USA, 0807-882-594 (무료),\nyt-support-solutions-kr@google.com, 호스팅: Google LLC,\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "사업자정보, 불법촬영물 신고",
                               style: TextStyle(color: Colors.blue),
                             ),
-                            const TextSpan(
-                              text:
-                                  "\n크리에이터들이 유튜브 상에 게시, 태그 또는 추천한 상품들은 판매자들의 약관에 따라 판매됩니다. 유튜브는 이러한 제품들을 판매하지 않으며, 그에 대한 책임을 지지 않습니다.",
+                            TextSpan(
+                              text: "\n크리에이터들이 유튜브 상에 게시, 태그 또는 추천한 상품들은 판매자들의 약관에 따라 판매됩니다. 유튜브는 이러한 제품들을 판매하지 않으며, 그에 대한 책임을 지지 않습니다.",
                             ),
                           ],
                         ),
@@ -290,8 +284,8 @@ class _MyAppState extends State<MyApp> {
               Container(
                 width: double.infinity,
                 height: 50,
-                decoration: BoxDecoration(color: Colors.transparent),
-                child: Row(
+                decoration: const BoxDecoration(color: Colors.transparent),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -304,7 +298,10 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
         ),
-        body: _mainPages[_currentBottomIndex],
+        body: IndexedStack(
+          index: _currentBottomIndex,
+          children: _mainPages,
+        ),
         bottomNavigationBar: BottomNavigationbar(
           currentIndex: _currentBottomIndex,
           onTap: (index) {
@@ -318,6 +315,5 @@ class _MyAppState extends State<MyApp> {
   }
 
   void shopping() {
-    setState(() {});
   }
 }

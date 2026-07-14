@@ -122,10 +122,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
-  void openMenu() {
-    ScaffoldKey.currentState?.openDrawer();
-  }
-
   Widget _buildVideoCard(VideoModel video) {
     return GestureDetector(
       onTap: () {
@@ -142,15 +138,15 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 200,
-              width: double.infinity,
+              height: 230,
+              width: 400,
               color: const Color(0xFF1F1F1F),
               child: Image.network(
                 'https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg',
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -225,7 +221,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 _currentCategoryIndex = index;
               });
             },
-            openMenu: openMenu,
           ),
 
           SliverToBoxAdapter(
