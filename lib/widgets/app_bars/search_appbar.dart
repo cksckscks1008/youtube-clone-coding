@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 
@@ -35,7 +36,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
   }
 
   void back(BuildContext context) {
-    Navigator.pop(context);
+    context.pop(context);
   }
 
   @override

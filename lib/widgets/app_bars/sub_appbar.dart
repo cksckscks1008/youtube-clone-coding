@@ -4,6 +4,7 @@ import 'package:youtube_app_clonecoding/screens/search/search_page.dart';
 import 'package:youtube_app_clonecoding/screens/subscription/sub_list.dart';
 import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_profile.dart';
 import 'package:youtube_app_clonecoding/models/channel_model.dart';
+import 'package:go_router/go_router.dart';
 
 class SubAppbar extends StatefulWidget {
   final Function(int)? onCategorieSelected;
@@ -159,12 +160,9 @@ class _SubAppbarState extends State<SubAppbar> {
           const SizedBox(width: 20,),
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SearchPage(history: history),
-                ),
-              );
+              context.go('/search', extra: {
+                'history': history
+              });
             },
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
@@ -198,10 +196,7 @@ class _SubAppbarState extends State<SubAppbar> {
                     Positioned(
                       right: 0,
                       child: GestureDetector(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SubList()),
-                        ),
+                        onTap: () => context.go('/sublist'),
                         child: Container(
                           width: 35,
                           height: 100,

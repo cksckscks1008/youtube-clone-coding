@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_app_clonecoding/widgets/app_bars/appbar.dart';
 import 'package:youtube_app_clonecoding/main.dart';
 import 'package:youtube_app_clonecoding/models/video_model.dart';
+import 'package:youtube_app_clonecoding/widgets/video_card/video_card.dart';
 import '../video_player/video_player_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -123,50 +125,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   Widget _buildVideoCard(VideoModel video) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => VideoPlayerScreen(video: video, allVideos: _allVideos),
-          ),
-        );
-      },
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 230,
-              width: 400,
-              color: const Color(0xFF1F1F1F),
-              child: Image.network(
-                'https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg',
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    video.title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppTextStyle.body
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    '${video.channelName} • ${video.category}',
-                    style: AppTextStyle.caption
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+    return VideoCard(
+        video: video,
+        allVideos: _allVideos,
+        width: 300,
+        height: 170
     );
   }
 

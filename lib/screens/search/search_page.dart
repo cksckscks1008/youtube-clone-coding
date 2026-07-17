@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
 import 'package:youtube_app_clonecoding/widgets/app_bars/search_appbar.dart';
@@ -25,7 +26,7 @@ class _SearchPageState extends State<SearchPage> {
         onSearchSubmitted: (value) {
           setState(() {
             widget.history.insert(0, value);
-            Navigator.pop(context);
+            context.pop(context);
           });
         },
       ),

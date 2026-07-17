@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/widgets/category/category_bar.dart';
 import 'package:youtube_app_clonecoding/screens/search/search_page.dart';
 
@@ -67,12 +68,9 @@ class _YoutubepppbarState extends State<Youtubepppbar> {
           const SizedBox(width: 20),
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SearchPage(history: history),
-                ),
-              );
+              context.go('/search', extra: {
+                'history': history
+              });
             },
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,

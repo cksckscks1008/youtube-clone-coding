@@ -16,7 +16,9 @@ class SubModalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        isSelected = !isSelected;
+      },
 
       child: Container(
         width: double.infinity,
