@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return VideoCard(
         video: video,
         allVideos: _allVideos,
-        width: 300,
+        width: 370,
         height: 170
     );
   }

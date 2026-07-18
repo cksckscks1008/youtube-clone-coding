@@ -68,7 +68,7 @@ class _YoutubepppbarState extends State<Youtubepppbar> {
           const SizedBox(width: 20),
           IconButton(
             onPressed: () {
-              context.go('/search', extra: {
+              context.push('/search', extra: {
                 'history': history
               });
             },

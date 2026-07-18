@@ -45,7 +45,7 @@ GoRoute(path: '/', builder: (BuildContext context, GoRouterState state) {
 
           Widget screen;
           if (extra != null) {
-            final history = extra as List<String>;
+            final history = extra['history'] as List<String>;
 
             screen = SearchPage(history: history);
 

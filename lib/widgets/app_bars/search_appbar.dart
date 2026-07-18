@@ -44,7 +44,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
     return AppBar(
       backgroundColor: AppColors.background,
       leading: IconButton(
-        onPressed: () => back(context),
+        onPressed: () => context.pop(context),
         icon: Icon(Icons.arrow_back, color: AppColors.textPrimary),
       ),
       leadingWidth: 48,
