@@ -25,7 +25,7 @@ class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {
-            context.go('/search', extra: {
+            context.push('/search', extra: {
               'history': history
     });
           },

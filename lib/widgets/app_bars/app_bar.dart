@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/widgets/category/category_bar.dart';
 import 'package:youtube_app_clonecoding/screens/search/search_page.dart';
 
-class Youtubepppbar extends StatefulWidget {
+class YoutubeAppbar extends StatefulWidget {
   final Function(int)? onCategorieSelected;
   final bool showCategory;
   final Function()? openMenu;
 
-  const Youtubepppbar({
+  const YoutubeAppbar({
     super.key,
     this.onCategorieSelected,
     this.showCategory = true,
@@ -16,10 +16,10 @@ class Youtubepppbar extends StatefulWidget {
   });
 
   @override
-  State<Youtubepppbar> createState() => _YoutubepppbarState();
+  State<YoutubeAppbar> createState() => _YoutubeAppbarState();
 }
 
-class _YoutubepppbarState extends State<Youtubepppbar> {
+class _YoutubeAppbarState extends State<YoutubeAppbar> {
   final List<String> categories = [
     '전체',
     '게임',

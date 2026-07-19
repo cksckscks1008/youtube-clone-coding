@@ -160,7 +160,7 @@ class _SubAppbarState extends State<SubAppbar> {
           const SizedBox(width: 20,),
           IconButton(
             onPressed: () {
-              context.go('/search', extra: {
+              context.push('/search', extra: {
                 'history': history
               });
             },
@@ -196,7 +196,7 @@ class _SubAppbarState extends State<SubAppbar> {
                     Positioned(
                       right: 0,
                       child: GestureDetector(
-                        onTap: () => context.go('/sublist'),
+                        onTap: () => context.push('/sublist'),
                         child: Container(
                           width: 35,
                           height: 100,

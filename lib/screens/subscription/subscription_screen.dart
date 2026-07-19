@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'package:youtube_app_clonecoding/widgets/app_bars/appbar.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bars/app_bar.dart';
 import 'package:youtube_app_clonecoding/widgets/app_bars/sub_appbar.dart';
 import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_profile.dart';
 import 'package:youtube_app_clonecoding/widgets/video_card/video_card.dart';
@@ -98,7 +98,7 @@ class _SubscriptionScreen extends State<SubscriptionScreen> {
                             video: widget.allVideo[index],
                             allVideos: widget.allVideo,
                             width: 310,
-                            height: 180,
+                            height: 142,
                         )
                       );
                     },

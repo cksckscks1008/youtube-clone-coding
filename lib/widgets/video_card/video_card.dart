@@ -26,43 +26,46 @@ class VideoCard extends StatelessWidget {
           'allVideos': allVideos
         });
       },
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: height,
-              width: width,
-              color: Colors.transparent,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(7),
-                child: Image.network(
-                  'https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg',
-                  fit: BoxFit.cover,
+      child: SizedBox(
+        width: width,
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: height,
+                width: width,
+                color: Colors.transparent,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(7),
+                  child: Image.network(
+                    'https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+          ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                        video.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyle.body
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                        '${video.channelName} • ${video.category}',
+                        style: AppTextStyle.caption
+                    ),
+                  ],
                 ),
               ),
-        ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                      video.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyle.body
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                      '${video.channelName} • ${video.category}',
-                      style: AppTextStyle.caption
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

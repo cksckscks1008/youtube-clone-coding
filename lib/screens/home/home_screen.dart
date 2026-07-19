@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:youtube_app_clonecoding/Theme/colors.dart';
 import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'package:youtube_app_clonecoding/widgets/app_bars/appbar.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bars/app_bar.dart';
 import 'package:youtube_app_clonecoding/main.dart';
 import 'package:youtube_app_clonecoding/models/video_model.dart';
 import 'package:youtube_app_clonecoding/widgets/video_card/video_card.dart';
@@ -125,11 +125,13 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   Widget _buildVideoCard(VideoModel video) {
-    return VideoCard(
-        video: video,
-        allVideos: _allVideos,
-        width: 370,
-        height: 170
+    return Center(
+      child: VideoCard(
+          video: video,
+          allVideos: _allVideos,
+          width: 450,
+          height: 200
+      ),
     );
   }
 
@@ -178,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       body: CustomScrollView(
         slivers: [
-          Youtubepppbar(
+          YoutubeAppbar(
             onCategorieSelected: (index) {
               setState(() {
                 _currentCategoryIndex = index;
