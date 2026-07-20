@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/models/channel_model.dart';
-import 'package:youtube_app_clonecoding/widgets/app_bars/default_appbar.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bar/default_app_bar.dart';
 import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_list_tile.dart';
 import 'package:youtube_app_clonecoding/screens/subscription/widgets/sub_modal_button.dart';
 

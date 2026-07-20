@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/constants/colors.dart';
 
 class SubModalButton extends StatelessWidget {
   final IconData icon;

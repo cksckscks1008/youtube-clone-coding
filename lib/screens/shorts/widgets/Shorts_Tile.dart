@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
+import 'package:go_router/go_router.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
 import 'shorts_button.dart';
 import '../../../models/shorts_model.dart';
 import 'shorts_profile.dart';
@@ -15,6 +16,7 @@ class ShortsTile extends StatefulWidget {
 }
 
 class _ShortsTileState extends State<ShortsTile> {
+  List<String> history = [];
   late YoutubePlayerController _controller;
 
   @override
@@ -49,7 +51,9 @@ class _ShortsTileState extends State<ShortsTile> {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: onClick,
+                  onPressed: () => context.push('/search', extra: {
+                    'history' : history
+                  }),
                   icon: const Icon(Icons.search, color: Colors.white, size: 32),
                 ),
                 IconButton(

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
+import 'package:youtube_app_clonecoding/screens/video_player/widgets/bookmark/bookmark_button.dart';
+import 'package:youtube_app_clonecoding/screens/video_player/widgets/more/more_button.dart';
 import 'package:youtube_app_clonecoding/screens/video_player/widgets/share/share_button.dart';
 import 'package:youtube_app_clonecoding/screens/video_player/widgets/share/share_profile.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_app_clonecoding/models/video_model.dart';
 import '../../models/comment_model.dart';
-import 'package:youtube_app_clonecoding/Theme/colors.dart';
+import 'package:youtube_app_clonecoding/constants/colors.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
   final VideoModel video;
@@ -126,7 +128,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         iconTheme: const IconThemeData(color: Colors.white),
         leading: IconButton(
           onPressed: () {
-              context.pop(context);
+            context.pop(context);
           },
           icon: const Icon(Icons.arrow_back),
         ),
@@ -221,6 +223,304 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
                         onPressed: () => showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: const Color(0xFF1F1F1F),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(16),
+                            ),
+                          ),
+                          builder: (context) {
+                            return SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.6 + 6,
+                              child: SafeArea(
+                                child: StatefulBuilder(
+                                  builder: (context, setModalState) {
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 30.0,
+                                        horizontal: 15,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        spacing: 3,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '공유',
+                                                style: TextStyle(
+                                                  color: AppColors.textPrimary,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w900,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(height: 10),
+                                          SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              spacing: 35,
+                                              children: [
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuU7rn5zfAx41Iz31TmTr9vZhYQ_59kwwa4YjNbQ5sZg&s=10',
+                                                  text: 'Discord',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDAg2IYnAdytH10MKmi6wsnn-UPwxjORKPyCsJ1ONzpQ&s=10',
+                                                  text: '카카오톡',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYEZ_0LALrIL8db_KijQzOYy1P1R8giCCoPzHwbIZPvw&s=10',
+                                                  text: 'Gmail',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFUU3ODmvyN-YrzcVkKOXzOADxGBmH6wkytW492PuNQ&s=10',
+                                                  text: '메세지',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSybrzjkQnrhiJVfghI01pbHUTamxNd1lWVoYTvC8ZLsA&s=10',
+                                                  text: '블루투스',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhE_LQ0CFkyLcTHaM-uVKYNGNCS7p1jy93T8AOPcyng&s=10',
+                                                  text: '뉴스 피드',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVXcyFjShNsQEK5nZpYmsakm-02-fGQ8Q1J0zvPjSh0Q&s=10',
+                                                  text: 'Facebook\nMessenger',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://thumbs.dreamstime.com/b/twitter-new-logo-app-icon-logo-social-media-platform-logo-icon-new-twitter-logo-twitter-new-logo-app-icon-logo-social-305511820.jpg',
+                                                  text: 'X',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB1L7Q2Kn2ud09g3zrELZArA5v8c5_g2Q_j_amnYWRuA&s=10',
+                                                  text: 'Reddit',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ02jF6x-5teRlV3m0HFh0zGJjFQnBQtbxkBxH11CTYg&s=10',
+                                                  text: 'Meet\nactivity',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaLhQeNw9hdwpqKX8flBtBgmCbimHvgopfXvcETS8UVQ&s=10',
+                                                  text: '메시지',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-jhWwsVtXMUbAjpG9rs2m5d8fuGrKhbPlWla_lB50EA&s=10',
+                                                  text: 'Samsung\nNotes',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_cqqE_RI7CWFVIzpiUJshquyELZJ8XvHdfF4O1uBBOg&s=10',
+                                                  text: '내 그룹',
+                                                ),
+                                                const ShareProfile(
+                                                  image:
+                                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeuJJohB8_4ZiGtkHuVKzES76WM1Zq6-TPVs5-bKhpXw&s=10',
+                                                  text: '더보기',
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Divider(indent: 0, endIndent: 0),
+                                          ShareButton(
+                                            icon: Icons.copy_rounded,
+                                            text: '링크 복사',
+                                          ),
+                                          ShareButton(
+                                            icon: Icons.sync_alt,
+                                            text: 'Quick Share',
+                                          ),
+                                          ShareButton(
+                                            icon: Icons.add_comment_outlined,
+                                            text: '게시물 작성',
+                                          ),
+                                          ShareButton(
+                                            icon: Icons.sync,
+                                            text: '리믹스',
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        icon: const Icon(
+                          Icons.reply_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        onPressed: () => showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: const Color(0xFF1F1F1F),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(16),
+                            ),
+                          ),
+                          builder: (context) {
+                            return SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.6 + 6,
+                              child: SafeArea(
+                                child: StatefulBuilder(
+                                  builder: (context, setModalState) {
+                                    return Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 15,
+                                        vertical: 30,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        spacing: 20,
+                                        children: [
+                                          Text(
+                                            '저장 위치',
+                                            style: TextStyle(
+                                              color: AppColors.textPrimary,
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: SingleChildScrollView(
+                                              child: Column(
+                                                spacing: 14,
+                                                children: [
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                  BookmarkButton(
+                                                    image:
+                                                    'https://img.youtube.com/vi/WVgJzNtJh-w/maxresdefault.jpg',
+                                                    title: '수학 공부',
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            height: 30,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.transparent,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                                              child: Ink(
+                                                width: double.infinity,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white12,
+                                                  borderRadius: BorderRadius.circular(15),
+                                                ),
+                                                child: InkWell(
+                                                  onTap: () {},
+                                                  borderRadius: BorderRadius.circular(15),
+                                                  child: const Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    children: [
+                                                      Icon(Icons.add, color: Colors.white),
+                                                      SizedBox(width: 6),
+                                                      Text(
+                                                        '새 재생목록',
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        icon: const Icon(
+                          Icons.bookmark_border,
+                          color: Colors.white,
+                        ),
+                      ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        onPressed: () => showModalBottomSheet(
                             context: context,
                             isScrollControlled: true,
                             backgroundColor: const Color(0xFF1F1F1F),
@@ -231,121 +531,27 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                             ),
                             builder: (context) {
                               return SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.6 + 6,
+                                height: MediaQuery.of(context).size.height * 0.17 + 10,
                                 child: SafeArea(
                                     child: StatefulBuilder(
-                                    builder: (context, setModalState) {
-                                      return  Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 15),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                                          spacing: 3,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text('공유', style: TextStyle(color: AppColors.textPrimary, fontSize: 16, fontWeight: FontWeight.w900),)
-                                              ],
-                                            ),
-                                                const SizedBox(height: 10),
-                                                SingleChildScrollView(
-                                                  scrollDirection: Axis.horizontal,
-                                                  child: Row(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    spacing: 35,
-                                                    children: [
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuU7rn5zfAx41Iz31TmTr9vZhYQ_59kwwa4YjNbQ5sZg&s=10',
-                                                          text: 'Discord'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDAg2IYnAdytH10MKmi6wsnn-UPwxjORKPyCsJ1ONzpQ&s=10',
-                                                          text: '카카오톡'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYEZ_0LALrIL8db_KijQzOYy1P1R8giCCoPzHwbIZPvw&s=10',
-                                                          text: 'Gmail'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFUU3ODmvyN-YrzcVkKOXzOADxGBmH6wkytW492PuNQ&s=10',
-                                                          text: '메세지'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSybrzjkQnrhiJVfghI01pbHUTamxNd1lWVoYTvC8ZLsA&s=10',
-                                                          text: '블루투스'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfhE_LQ0CFkyLcTHaM-uVKYNGNCS7p1jy93T8AOPcyng&s=10',
-                                                          text: '뉴스 피드'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVXcyFjShNsQEK5nZpYmsakm-02-fGQ8Q1J0zvPjSh0Q&s=10',
-                                                          text: 'Facebook\nMessenger'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://thumbs.dreamstime.com/b/twitter-new-logo-app-icon-logo-social-media-platform-logo-icon-new-twitter-logo-twitter-new-logo-app-icon-logo-social-305511820.jpg',
-                                                          text: 'X'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB1L7Q2Kn2ud09g3zrELZArA5v8c5_g2Q_j_amnYWRuA&s=10',
-                                                          text: 'Reddit'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ02jF6x-5teRlV3m0HFh0zGJjFQnBQtbxkBxH11CTYg&s=10',
-                                                          text: 'Meet\nactivity'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaLhQeNw9hdwpqKX8flBtBgmCbimHvgopfXvcETS8UVQ&s=10',
-                                                          text: '메시지'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-jhWwsVtXMUbAjpG9rs2m5d8fuGrKhbPlWla_lB50EA&s=10',
-                                                          text: 'Samsung\nNotes'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_cqqE_RI7CWFVIzpiUJshquyELZJ8XvHdfF4O1uBBOg&s=10',
-                                                          text: '내 그룹'
-                                                      ),
-                                                      const ShareProfile(
-                                                          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeuJJohB8_4ZiGtkHuVKzES76WM1Zq6-TPVs5-bKhpXw&s=10',
-                                                          text: '더보기'
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                            Divider(),
-                                            ShareButton(icon: Icons.copy_rounded, text: '링크 복사'),
-                                            ShareButton(icon: Icons.sync_alt, text: 'Quick Share'),
-                                            ShareButton(icon: Icons.add_comment_outlined, text: '게시물 작성'),
-                                            ShareButton(icon: Icons.sync, text: '리믹스')
-                                          ],
-                                        ),
-                                      );
-                                    }
-                                  )
+                                        builder: (context, setModalState) {
+                                          return Padding(
+                                              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                spacing: 10,
+                                                children: [
+                                                  MoreButton(icon: Icons.arrow_downward, text: '오프라인 저장'),
+                                                  MoreButton(icon: Icons.flag_outlined, text: '신고')
+                                                ],
+                                              ),
+                                          );
+                                        }
+                                    )
                                 ),
                               );
                             }
                         ),
-                        icon: const Icon(
-                          Icons.reply_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        constraints: const BoxConstraints(),
-                        onPressed: onDislike,
-                        icon: const Icon(
-                          Icons.bookmark_border,
-                          color: Colors.white,
-                        ),
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        constraints: const BoxConstraints(),
-                        onPressed: onDislike,
                         icon: const Icon(Icons.more_horiz, color: Colors.white),
                       ),
                     ],

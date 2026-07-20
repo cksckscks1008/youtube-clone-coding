@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/Theme/colors.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
+import 'package:youtube_app_clonecoding/constants/colors.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
 
 class CategorieButton extends StatelessWidget {
   final bool isSelected;

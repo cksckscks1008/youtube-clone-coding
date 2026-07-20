@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:youtube_app_clonecoding/Theme/colors.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'package:youtube_app_clonecoding/widgets/app_bars/app_bar.dart';
-import 'package:youtube_app_clonecoding/main.dart';
+import 'package:youtube_app_clonecoding/constants/colors.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bar/app_bar.dart';
 import 'package:youtube_app_clonecoding/models/video_model.dart';
 import 'package:youtube_app_clonecoding/widgets/video_card/video_card.dart';
-import '../video_player/video_player_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -146,12 +143,21 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
 
-    return ListView.builder(
-      padding: EdgeInsets.zero,
-      itemCount: filteredVideos.length,
-      itemBuilder: (context, index) {
-        return _buildVideoCard(filteredVideos[index]);
+    return RefreshIndicator(
+      onRefresh: () {
+        setState(() {
+          _allVideos.shuffle();
+        });
+        return Future.value();
       },
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        physics: const AlwaysScrollableScrollPhysics(),
+        itemCount: filteredVideos.length,
+        itemBuilder: (context, index) {
+          return _buildVideoCard(filteredVideos[index]);
+        },
+      ),
     );
   }
 

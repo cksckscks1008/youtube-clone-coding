@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
 
 class MenuImageButton extends StatelessWidget {
   final Function click;

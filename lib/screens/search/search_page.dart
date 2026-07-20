@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:youtube_app_clonecoding/Theme/colors.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
-import 'package:youtube_app_clonecoding/widgets/app_bars/search_appbar.dart';
+import 'package:youtube_app_clonecoding/constants/colors.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
+import 'package:youtube_app_clonecoding/widgets/app_bar/search_app_bar.dart';
 
 class SearchPage extends StatefulWidget {
   List<String> history;

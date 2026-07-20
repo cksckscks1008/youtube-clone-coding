@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_app_clonecoding/Theme/colors.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
+import 'package:go_router/go_router.dart';
+import 'package:youtube_app_clonecoding/constants/colors.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
 import '../../models/video_model.dart';
 import 'widgets/mypage_button.dart';
 
@@ -14,6 +15,7 @@ class MypageScreen extends StatefulWidget {
 }
 
 class _MypageScreenState extends State<MypageScreen> {
+  List<String> history = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +58,9 @@ class _MypageScreenState extends State<MypageScreen> {
           ),
           const SizedBox(width: 5),
           IconButton(
-            onPressed: set,
+            onPressed: () => context.push('/search', extra: {
+              'history' : history
+            }),
             icon: const Icon(
               Icons.search_outlined,
               color: Colors.white,

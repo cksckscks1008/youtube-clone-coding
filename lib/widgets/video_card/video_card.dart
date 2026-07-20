@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clonecoding/models/video_model.dart';
 import 'package:go_router/go_router.dart';
-import 'package:youtube_app_clonecoding/Theme/textstyle.dart';
+import 'package:youtube_app_clonecoding/constants/textstyle.dart';
 
 class VideoCard extends StatelessWidget {
   final VideoModel video;
