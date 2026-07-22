@@ -140,6 +140,7 @@ class _SubAppbarState extends State<SubAppbar> {
     return Theme(
       data: ThemeData(splashColor: Colors.transparent),
       child: SliverAppBar(
+        scrolledUnderElevation: 0,
         pinned: false,
         floating: true,
         leadingWidth: 150,

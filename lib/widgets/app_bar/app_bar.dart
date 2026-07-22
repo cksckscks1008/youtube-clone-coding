@@ -45,6 +45,7 @@ class _YoutubeAppbarState extends State<YoutubeAppbar> {
     return Theme(
       data: ThemeData(splashColor: Colors.transparent),
       child: SliverAppBar(
+        scrolledUnderElevation: 0,
         pinned: true,
         floating: true,
         leadingWidth: 150,

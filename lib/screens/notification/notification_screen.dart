@@ -21,6 +21,7 @@ class NotificationScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
+                    const SizedBox(width: 10,),
                     Text('이번 주', style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w700, fontSize: 14.4),),
                   ],
                 ),

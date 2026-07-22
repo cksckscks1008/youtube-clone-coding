@@ -15,6 +15,7 @@ class DefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     List<String> history = [];
     return AppBar(
+      scrolledUnderElevation: 0,
       backgroundColor: AppColors.background,
       leading: IconButton(
         onPressed: () => context.pop(context),
