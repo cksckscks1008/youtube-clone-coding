@@ -49,7 +49,7 @@ class _MypageScreenState extends State<MypageScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: set,
+            onPressed: () => context.push('/notification'),
             icon: const Icon(
               Icons.notifications_none_rounded,
               color: Colors.white,

@@ -122,6 +122,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   Widget build(BuildContext context) {
     int commentNumber = dummyComments.length;
     return Scaffold(
+        resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFF0F0F0F),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0F0F0F),

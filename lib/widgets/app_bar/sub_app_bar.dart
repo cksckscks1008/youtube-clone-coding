@@ -150,7 +150,7 @@ class _SubAppbarState extends State<SubAppbar> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.push('/notification'),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             icon: Icon(Icons.notifications_none_rounded, color: Colors.white, size: 30),

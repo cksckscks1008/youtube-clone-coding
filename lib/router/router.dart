@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:youtube_app_clonecoding/screens/notification/notification_screen.dart';
 import 'package:youtube_app_clonecoding/screens/video_player/video_player_screen.dart';
-import 'package:youtube_app_clonecoding/screens/search/search_page.dart';
+import 'package:youtube_app_clonecoding/screens/search/search_screen.dart';
 import 'package:youtube_app_clonecoding/screens/subscription/sub_list.dart';
 import 'package:youtube_app_clonecoding/screens/main_screen.dart';
 import 'package:youtube_app_clonecoding/models/video_model.dart';
@@ -60,5 +61,9 @@ final GoRouter router = GoRouter(
         return SubList();
       },
     ),
+
+    GoRoute(path: '/notification',builder: (BuildContext context, GoRouterState state) {
+      return NotificationScreen();
+    })
   ],
 );

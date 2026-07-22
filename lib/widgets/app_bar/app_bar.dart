@@ -55,7 +55,7 @@ class _YoutubeAppbarState extends State<YoutubeAppbar> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.push('/notification'),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             icon: const Icon(
